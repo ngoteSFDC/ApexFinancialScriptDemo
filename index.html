@@ -159,11 +159,16 @@
     <p>&copy; 2026 Apex Global Private Bank. Page 1 of 20[cite: 2].</p>
 </footer>
 <script type='text/javascript'>
-<script type='text/javascript'>
     function isMobileDevice() {
         return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
             || window.innerWidth <= 768;
     }
+
+    window.addEventListener('onEmbeddedMessagingReady', function() {
+        if (!isMobileDevice()) {
+            embeddedservice_bootstrap.utilAPI.launchChat();
+        }
+    });
 
     function initEmbeddedMessaging() {
         try {
@@ -177,18 +182,10 @@
                     scrt2URL: 'https://trailsignup-09ca171f290f17.my.salesforce-scrt.com'
                 }
             );
-
         } catch (err) {
             console.error('Error loading Embedded Messaging: ', err);
         }
-    };
-
-    // Use window event listener instead of addEventHandler
-    window.addEventListener('onEmbeddedMessagingReady', () => {
-        if (!isMobileDevice()) {
-            embeddedservice_bootstrap.utilAPI.launchChat();
-        }
-    });
+    }
 </script>
 <script type='text/javascript'
     src='https://trailsignup-09ca171f290f17.my.site.com/ESWApexFinancialWeb1777069222735/assets/js/bootstrap.min.js'
