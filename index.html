@@ -159,40 +159,24 @@
     <p>&copy; 2026 Apex Global Private Bank. Page 1 of 20[cite: 2].</p>
 </footer>
 <script type='text/javascript'>
-    function isMobileDevice() {
-        return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-            || window.innerWidth <= 768;
-    }
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-    window.addEventListener('onEmbeddedMessagingButtonCreated', function() {
-        if (!isMobileDevice()) {
-            embeddedservice_bootstrap.utilAPI.launchChat()
-                .catch(function(err) {
-                    console.warn('launchChat failed:', err);
-                });
-        }
-    });
-
-    function initEmbeddedMessaging() {
-        try {
-            embeddedservice_bootstrap.settings.language = 'en_US';
-
-            embeddedservice_bootstrap.init(
-                '00DHs00000S6flO',
-                'ApexFinancial_Web',
-                'https://trailsignup-09ca171f290f17.my.site.com/ESWApexFinancialWeb1777069222735',
-                {
-                    scrt2URL: 'https://trailsignup-09ca171f290f17.my.salesforce-scrt.com'
-                }
-            );
-        } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-        }
-    }
+			embeddedservice_bootstrap.init(
+				'00DHs00000S6flO',
+				'Apex_FinancialScript',
+				'https://trailsignup-09ca171f290f17.my.site.com/ESWApexFinancialScript1779121913957',
+				{
+					scrt2URL: 'https://trailsignup-09ca171f290f17.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
-<script type='text/javascript'
-    src='https://trailsignup-09ca171f290f17.my.site.com/ESWApexFinancialWeb1777069222735/assets/js/bootstrap.min.js'
-    onload='initEmbeddedMessaging()'>
-</script>
+<script type='text/javascript' src='https://trailsignup-09ca171f290f17.my.site.com/ESWApexFinancialScript1779121913957/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
